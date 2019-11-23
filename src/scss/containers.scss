@@ -1,0 +1,14 @@
+@mixin flexContainer($display, $align, $justify) {
+  display: $display;
+  align-items: $align;
+  justify-content: $justify;
+}
+
+.container {
+  @include flexContainer(inline-flex, center, center);
+}
+
+.container.column {
+  @include flexContainer(inline-flex, center, center);
+  flex-direction: column;
+}
