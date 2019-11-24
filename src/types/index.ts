@@ -1,10 +1,14 @@
 export enum ECurrency {
     Ruble = "Ruble",
+    Dollar = "Dollar",
+    Euro = "Euro",
     Unknown = "Unknown"
 }
 
 export const CurrencyEntities = {
-    [ECurrency.Ruble]: "&#x20bd;"
+    [ECurrency.Ruble]: "&#x20bd;",
+    [ECurrency.Dollar]: "&#x24;",
+    [ECurrency.Euro]: "&#8364;"
 };
 
 export interface IProperty {
@@ -22,7 +26,7 @@ export interface IProduct {
     currency: ECurrency,
     description: string,
     properties: Array<IProperty>,
-    posted?: number,
+    posted?: Date | null,
     pictures: Array<File>
 }
 

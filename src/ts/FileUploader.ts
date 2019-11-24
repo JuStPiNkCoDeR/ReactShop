@@ -17,6 +17,7 @@ export default class FileUploader {
     private _generateChunks: Generator<IChunk>;
     private _updateUploadedBytes: UpdateUploadedBytes;
     private _listeners: Array<null | undefined | listener> = [];
+    private _isUploaded: boolean = false;
 
     public chunkSize: number = 1;
 
@@ -71,6 +72,8 @@ export default class FileUploader {
 
 
     private sendChunks(data: any) {
+        if (this._isUploaded) return;
+
         if (data) this._updateUploadedBytes(data.receivedSize as number);
 
         let chunk = this._generateChunks.next();
@@ -86,6 +89,7 @@ export default class FileUploader {
 
     private onSaved(data: any) {
         console.log(data);
+        this._isUploaded = true;
     }
 
     get uploadedBytes(): Array<number> {

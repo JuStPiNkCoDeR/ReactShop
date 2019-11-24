@@ -34,6 +34,19 @@ const QueryProducts = new GraphQLObjectType({
                     return product;
                 });
             }
+        },
+        allProducts: {
+            type: GraphQLList(ProductType),
+            description: "Return all products",
+            async resolve() {
+                await db.connect()
+                    .catch(error => {throw error;});
+
+                return await ProductModel.find(function (err, products) {
+                    if (err) throw err;
+                    return products;
+                })
+            }
         }
     })
 });

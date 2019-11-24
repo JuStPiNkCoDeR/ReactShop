@@ -1,0 +1,13 @@
+.optionsBlock {
+  background: #2d58e0;
+  justify-content: space-around;
+
+  .productsAmount {
+    span{
+      margin-right: 7px;
+    }
+    span:after {
+      content: ':';
+    }
+  }
+}

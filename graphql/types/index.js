@@ -5,6 +5,7 @@ const {
     GraphQLList,
     GraphQLObjectType
 } = require('graphql');
+const GraphQLDate = require('graphql-date');
 
 const ProductType = new GraphQLObjectType({
     name: 'Product',
@@ -32,9 +33,9 @@ const ProductType = new GraphQLObjectType({
             type: GraphQLNonNull(GraphQLList(GraphQLList(GraphQLString)))
         },
         posted: {
-            type: GraphQLNonNull(GraphQLInt),
+            type: GraphQLNonNull(GraphQLDate),
             resolve(product) {
-                return product.posted.now();
+                return new Date(product.posted);
             }
         }
     })

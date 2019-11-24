@@ -6,7 +6,7 @@ export interface IFetchData {
 }
 
 export enum ERequestTypes {
-    CreateProduct = 'createProduct'
+    CreateProduct = 'createProduct', AllProducts = 'allProducts'
 }
 
 interface IFetchedProductData {
@@ -16,10 +16,10 @@ interface IFetchedProductData {
     currency?: ECurrency,
     description?: string,
     properties?: Array<Array<string>>,
-    posted?: number
+    posted?: Date
 }
 
-function convert(data: IFetchedProductData, downloadFiles: boolean): IIdentifiedProduct {
+function convert(data: IFetchedProductData): IIdentifiedProduct {
     let props: Array<IProperty> = [];
     let pictures: Array<File> = [];
 
@@ -32,10 +32,6 @@ function convert(data: IFetchedProductData, downloadFiles: boolean): IIdentified
         });
     }
 
-    if (downloadFiles) {
-        //TODO("Загружать картинки")
-    }
-
     return {
         product: {
             name: data.name ? data.name : "",
@@ -43,24 +39,24 @@ function convert(data: IFetchedProductData, downloadFiles: boolean): IIdentified
             currency: data.currency ? data.currency : ECurrency.Unknown,
             description: data.description ? data.description : "",
             properties: props,
-            posted: data.posted ? data.posted : -1,
+            posted: data.posted ? new Date(data.posted) : null,
             pictures: pictures
         },
         id: data.id ? data.id : ""
     }
 }
 
-function* converter(array: Array<IFetchedProductData>, downloadFiles: boolean) {
+function* converter(array: Array<IFetchedProductData>) {
     for (let i = 0; i < array.length; i++) {
-        yield convert(array[i], downloadFiles);
+        yield convert(array[i]);
     }
 }
 
-function convertFetchedData(data: Array<IFetchedProductData> | IFetchedProductData, downloadFiles: boolean = false): Array<IIdentifiedProduct> {
+function convertFetchedData(data: Array<IFetchedProductData> | IFetchedProductData): Array<IIdentifiedProduct> {
     let products: Array<IIdentifiedProduct> = [];
 
-    if (data instanceof Array) {
-        let converterIterator = converter(data, downloadFiles);
+    if (Array.isArray(data)) {
+        let converterIterator = converter(data);
         let product = converterIterator.next();
 
         while (!product.done) {
@@ -68,7 +64,7 @@ function convertFetchedData(data: Array<IFetchedProductData> | IFetchedProductDa
             product = converterIterator.next();
         }
     } else {
-        products.push(convert(data, downloadFiles));
+        products.push(convert(data));
     }
 
     return products;
@@ -93,8 +89,7 @@ export const GraphQL = {
                     let ans = xhr.response.data[type] as IFetchedProductData;
 
                     if (ans) {
-                        if (type === ERequestTypes.CreateProduct)
-                            resolve(convertFetchedData(ans, false));
+                        resolve(convertFetchedData(ans));
                     }
                 }
             };

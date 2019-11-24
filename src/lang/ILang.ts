@@ -20,5 +20,27 @@ export default interface ILang {
                 addNewProperty: string
             }
         }
+    },
+    options: {
+        countOfProducts: string,
+        sortTypes: {
+            from: string,
+            to: string,
+            sortBy: string,
+            all: string,
+            price: string,
+            date: string,
+            currency: string,
+            chooseCurrency: string
+        }
+    },
+    productsList: {
+        product: {
+            price: string,
+            date: string,
+            unknown: string,
+            properties: string,
+            description: string
+        }
     }
 }

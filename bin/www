@@ -7,6 +7,7 @@
 let app = require('../app');
 let debug = require('debug')('express-graphql-vue:server');
 let http = require('http');
+const socket = require('../socket');
 
 /**
  * Get port from environment and store in Express.
@@ -20,41 +21,7 @@ app.set('port', port);
  */
 
 let server = http.createServer(app);
-const io = require('socket.io')(server);
-const db = require('../db');
-const { ProductModel } = require('../db/models');
-
-io.on('connection', client => {
-  let file = [];
-  let files = [];
-  client.on('file:status:prepared', () => {
-    client.emit('file:status:ready');
-  });
-  client.on('file:send:chunk', data => {
-    file.push(data);
-    client.emit('file:status:ready', {
-      receivedSize: data.length
-    })
-  });
-
-  client.on('file:status:uploaded', data => {
-    files.push(file);
-    file = [];
-  });
-
-  client.on('file:status:done', async (data) => {
-    files.push(file);
-    file = [];
-
-    await db.connect();
-    ProductModel.findByIdAndUpdate(data, { pictures: files }, function (err, product) {
-      if (err) client.emit('file:status:error', err);
-      else client.emit('file:status:saved', {
-        files: files
-      });
-    });
-  });
-});
+socket.init(server);
 /**
  * Listen on provided port, on all network interfaces.
  */

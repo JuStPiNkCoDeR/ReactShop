@@ -22,6 +22,28 @@ const data: ILang = {
                 addNewProperty: "Добавить новое свойство"
             }
         }
+    },
+    options: {
+        countOfProducts: "Количество товаров по вашим требованиям",
+        sortTypes: {
+            from: "от",
+            to: "до",
+            sortBy: "Показать",
+            all: "Все",
+            price: "По цене",
+            currency: "По валюте",
+            date: "По дате",
+            chooseCurrency: "Валюта"
+        }
+    },
+    productsList: {
+        product: {
+            price: "Стоимость",
+            date: "Продается с",
+            unknown: "Неизвестно",
+            description: "Описание",
+            properties: "Свойства"
+        }
     }
 };
 

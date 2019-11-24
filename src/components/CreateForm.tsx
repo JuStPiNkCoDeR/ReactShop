@@ -1,6 +1,4 @@
 import React from 'react';
-import '../scss/forms.css';
-import '../scss/containers.css';
 import {ProductPropertiesField} from './ProductPropertiesField';
 import ILang from "../lang/ILang";
 import Lang from '../lang';
@@ -8,6 +6,7 @@ import {CurrencyEntities, ECurrency, EProductKeys, IProduct, IProperty} from '..
 import {ERequestTypes, GraphQL} from '../ts/GraphQL';
 import FileUploader from '../ts/FileUploader';
 import { DragAndDropFile } from './DragAndDropFile';
+import HTMLTricks from '../ts/HTMLTricks';
 
 export interface ICreateFormProps {
     language: string
@@ -37,7 +36,7 @@ export class CreateForm extends React.Component<ICreateFormProps, IStates> {
                 name: '',
                 price: -1,
                 description: '',
-                currency: ECurrency.Unknown,
+                currency: ECurrency.Ruble,
                 pictures: [],
                 properties: []
             },
@@ -127,16 +126,10 @@ export class CreateForm extends React.Component<ICreateFormProps, IStates> {
         this.setState(currentState);
     };
 
-    private entityToChar(str: string) {
-        const textarea = document.createElement('textarea');
-        textarea.innerHTML = str;
-        return textarea.value;
-    }
-
     render() {
         return(
             <div>
-                <form className="container column" action="" onSubmit={this._handleSubmit}>
+                <form className="container column mutationForm" action="" onSubmit={this._handleSubmit}>
                     <label className="block" htmlFor="name-field">
                         {this._langData.form.product.name}
                         <input id="name-field" type="text" placeholder={this._langData.form.product.writeName} onChange={(e) => this.handleStringValueChange(e, EProductKeys.Name)}/>
@@ -148,7 +141,9 @@ export class CreateForm extends React.Component<ICreateFormProps, IStates> {
                     <label className="block" htmlFor="currency-field">
                         {this._langData.form.product.currency}
                         <select id="currency-field" defaultValue={ECurrency.Ruble} onChange={(e) => {this.handleCurrencyValueChange(e)}}>
-                            <option value={ECurrency.Ruble}>{this.entityToChar(CurrencyEntities[ECurrency.Ruble])}</option>
+                            <option value={ECurrency.Ruble}>{HTMLTricks.entityToChar(CurrencyEntities[ECurrency.Ruble])}</option>
+                            <option value={ECurrency.Dollar}>{HTMLTricks.entityToChar(CurrencyEntities[ECurrency.Dollar])}</option>
+                            <option value={ECurrency.Euro}>{HTMLTricks.entityToChar(CurrencyEntities[ECurrency.Euro])}</option>
                         </select>
                     </label>
                     <label className="block container column" htmlFor="description-field">
