@@ -42,5 +42,9 @@ export default interface ILang {
             properties: string,
             description: string
         }
+    },
+    head: {
+        showProducts: string,
+        addNewProduct: string
     }
 }

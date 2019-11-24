@@ -1,52 +1,65 @@
 import Socket from './Socket';
 
 export class FileReceiver {
+    private static instance: FileReceiver | null;
     private _productId: string;
     private _isDownloaded: boolean = false;
     private _files: Array<Buffer> = [];
     private _filesSize: Array<number> = [];
     private _seek: number = 0;
+    private _callback: (result: Array<Buffer>) => void;
 
-    constructor(id: string) {
+    private constructor(id: string, callback: (result: Array<Buffer>) => void) {
         this._productId = id;
+        this._callback = callback;
+    }
+
+    public static getInstance(id: string, callback: (result: Array<Buffer>) => void): FileReceiver {
+        if (!this.instance) this.instance = new FileReceiver(id, callback);
+        else {
+            this.instance.productId = id;
+            this.instance.callback = callback;
+        }
+
+        return this.instance;
     }
 
     public download() {
         let id = this._productId;
-        return new Promise<Array<Buffer>>((resolve, reject) => {
-            if (this._isDownloaded) reject(new Error('Pictures already downloaded'));
-            Socket.$emit('file:status:prepareDownload', id);
 
-            Socket.$on('file:status:prepared', () => {
-                Socket.$emit('file:status:ready');
-                Socket.$on('file:send:chunk', (data: any) => {
-                    let buffer = this.arrayBufferToBuffer(data);
+        if (this._isDownloaded) new Error('Pictures already downloaded');
+        Socket.$emit('file:status:prepareDownload', id);
+    }
 
-                    if (!this._files[this._seek]) this._files[this._seek] = buffer;
-                    else {
-                        try {
-                            let newBuffer = Buffer.concat([this._files[this._seek], buffer]);
-                            this._files[this._seek] = newBuffer;
-                        } catch (e) {
-                            reject(e);
-                        }
-                    }
+    private _handlePrepared() {
+        Socket.$emit('file:status:ready');
+    }
 
-                    Socket.$emit('file:status:ready');
-                });
-                Socket.$on('file:status:next', () => {
-                    this._seek++;
-                    Socket.$emit('file:status:ready');
-                });
-                Socket.$on('file:status:error', (data: any) => {
-                    reject(data);
-                });
-                Socket.$on('file:status:done', () => {
-                    this._isDownloaded = true;
-                    resolve(this._files);
-                })
-            });
-        });
+    private _handleChunkSend(data: any) {
+        let buffer = this.arrayBufferToBuffer(data);
+
+        if (!this._files[this._seek]) this._files[this._seek] = buffer;
+        else {
+            try {
+                let newBuffer = Buffer.concat([this._files[this._seek], buffer]);
+                this._files[this._seek] = newBuffer;
+            } catch (e) {
+                //reject(e);
+            }
+        }
+
+        Socket.$emit('file:status:ready');
+    }
+
+    private _handleFileNext() {
+        this._seek++;
+        Socket.$emit('file:status:ready');
+    }
+
+    private _handleFileDone() {
+        this._isDownloaded = true;
+        this._callback(this._files);
+        this._files = [];
     }
 
     private arrayBufferToBuffer(array: ArrayBuffer): Buffer {
@@ -56,6 +69,31 @@ export class FileReceiver {
             buffer[i] = view[i];
         }
         return buffer;
+    }
+
+    set productId(value: string) {
+        this._productId = value;
+        this._isDownloaded = false;
+    }
+
+    set callback(value: (result: Array<Buffer>) => void) {
+        this._callback = value;
+    }
+
+    get handlePrepared(): () => void {
+        return this._handlePrepared.bind(this);
+    }
+
+    get handleChunkSend(): (data: any) => void {
+        return this._handleChunkSend.bind(this);
+    }
+
+    get handleFileNext(): () => void {
+        return this._handleFileNext.bind(this);
+    }
+
+    get handleFileDone(): () => void {
+        return this._handleFileDone.bind(this);
     }
 }
 

@@ -6,6 +6,7 @@ import {ERequestTypes, GraphQL, IIdentifiedProduct} from "../ts/GraphQL";
 import Products from './Products';
 import {IProduct} from "../types";
 import FileReceiver from "../ts/FileReceiver";
+import {func} from "prop-types";
 
 export interface IProductsListProps {
     language: string
@@ -13,6 +14,44 @@ export interface IProductsListProps {
 
 interface IStates {
     products: Array<IProduct>
+}
+
+interface IGenerator {
+    product: IIdentifiedProduct,
+    count: number
+}
+
+function* getProducts(products: Array<IIdentifiedProduct>): Generator<IGenerator> {
+    for (let i = 0; i < products.length; i++) {
+        yield {
+            count: i,
+            product: products[i]
+        };
+    }
+}
+
+function downloadPictures(iterator: Generator<IGenerator>) {
+    let product = iterator.next();
+
+    if (!product.done) {
+        let fr = FileReceiver.getInstance(product.value.product.id, (result: Array<Buffer>) => {
+            let pictures: Array<File> = [];
+
+            result.forEach((file) => {
+                pictures.push(new File([file.buffer], 'picture'));
+            });
+
+            //@ts-ignore
+            const currentState = this.state;
+            currentState.products[product.value.count].pictures = pictures;
+            //@ts-ignore
+            this.setState(currentState);
+            //@ts-ignore
+            let nextStep = downloadPictures.bind(this);
+            nextStep(iterator);
+        });
+        fr.download();
+    }
 }
 
 export class ProductsList extends React.Component<IProductsListProps, IStates> {
@@ -48,29 +87,13 @@ export class ProductsList extends React.Component<IProductsListProps, IStates> {
             products: clearProducts
         });
 
-        this.downloadPictures(products);
+        this.downloadResources(products);
     }
 
-    private downloadPictures(products: Array<IIdentifiedProduct>) {
-        return new Promise(async (resolve, reject) => {
-            for (let i = 0; i < products.length; i++) {
-                let product = products[i];
-                let fr = new FileReceiver(product.id);
-                await fr.download()
-                    .then(result => {
-                        let pictures: Array<File> = [];
-
-                        result.forEach((file) => {
-                            pictures.push(new File([file.buffer], 'picture'));
-                        });
-
-                        const currentState = this.state;
-                        currentState.products[i].pictures = pictures;
-                        this.setState(currentState);
-                    })
-                    .catch(error => console.log(error));
-            }
-        })
+    private downloadResources(products: Array<IIdentifiedProduct>) {
+        let iterator = getProducts(products);
+        let download = downloadPictures.bind(this);
+        download(iterator);
     }
 
     render() {

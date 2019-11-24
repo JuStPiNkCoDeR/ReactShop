@@ -1,0 +1,17 @@
+.head {
+  display: flex;
+  justify-content: space-around;
+
+  div:hover {
+    cursor: pointer;
+  }
+
+  .showProducts {
+    background: #2d58e0;
+    flex-grow: 0.5;
+  }
+  .addNewProduct {
+    background: #09d3ac;
+    flex-grow: 0.5;
+  }
+}

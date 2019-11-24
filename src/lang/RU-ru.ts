@@ -44,6 +44,10 @@ const data: ILang = {
             description: "Описание",
             properties: "Свойства"
         }
+    },
+    head: {
+        showProducts: "Показать все товары",
+        addNewProduct: "Добавить новый товар"
     }
 };
 

@@ -75,7 +75,10 @@ module.exports = {
                 if (!chunk.done) {
                     if (chunk.value.completeFile) client.emit('file:status:next');
                     else client.emit('file:send:chunk', chunk.value.data);
-                } else client.emit('file:status:done');
+                } else {
+                    iterator = null;
+                    client.emit('file:status:done');
+                }
             });
         })
     }
