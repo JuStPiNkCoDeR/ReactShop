@@ -17,4 +17,5 @@ Features:
 <ul>
     <li>Multilingual base (for 23 November 2019 it has only Russian translation)</li>
     <li>You can add new products to the store</li>
+    <li>You can watch any products you want</li>
 </ul>
