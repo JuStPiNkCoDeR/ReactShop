@@ -7,6 +7,7 @@ import {ERequestTypes, GraphQL} from '../ts/GraphQL';
 import FileUploader from '../ts/FileUploader';
 import { DragAndDropFile } from './DragAndDropFile';
 import HTMLTricks from '../ts/HTMLTricks';
+import Validation from "../ts/Validation";
 
 export interface ICreateFormProps {
     language: string
@@ -67,11 +68,14 @@ export class CreateForm extends React.Component<ICreateFormProps, IStates> {
                 properties: properties
             };
 
+            console.log(params);
+
             GraphQL.fetch({
                 query: mutation,
                 variables: params
             }, ERequestTypes.CreateProduct)
                 .then(result => {
+                    console.log(result);
                     const files = this.state.product.pictures;
                     const images = this.state.imgs;
                     const fp = new FileUploader(files, result[0].id);
@@ -95,8 +99,10 @@ export class CreateForm extends React.Component<ICreateFormProps, IStates> {
     }
 
     private handleStringValueChange(event: React.FormEvent<HTMLInputElement> | React.FormEvent<HTMLTextAreaElement>, key: EProductKeys.Name | EProductKeys.Description) {
+        let value = Validation.convertHTMLtoText(event.currentTarget.value);
+
         let currentState = Object.create(this.state) as IStates;
-        currentState.product[key] = event.currentTarget.value;
+        currentState.product[key] = value;
         this.setState(currentState);
     }
 
@@ -132,7 +138,7 @@ export class CreateForm extends React.Component<ICreateFormProps, IStates> {
                 <form className="container column mutationForm" action="" onSubmit={this._handleSubmit}>
                     <label className="block" htmlFor="name-field">
                         {this._langData.form.product.name}
-                        <input id="name-field" type="text" placeholder={this._langData.form.product.writeName} onChange={(e) => this.handleStringValueChange(e, EProductKeys.Name)}/>
+                        <input required id="name-field" type="text" placeholder={this._langData.form.product.writeName} onChange={(e) => this.handleStringValueChange(e, EProductKeys.Name)}/>
                     </label>
                     <label className="block" htmlFor="price-field">
                         {this._langData.form.product.price}
@@ -153,8 +159,8 @@ export class CreateForm extends React.Component<ICreateFormProps, IStates> {
                     <span className="block">
                         <ProductPropertiesField language={this.props.language} onChangeHandler={this.handlePropertiesValueChange}/>
                     </span>
-                    <DragAndDropFile language={this.props.language} handleFileChange={this.handlePicturesChange}/>
-                    <button>{this._langData.form.product.submit}</button>
+                    <DragAndDropFile mimeType='image/*' language={this.props.language} handleFileChange={this.handlePicturesChange}/>
+                    <button className="shiny">{this._langData.form.product.submit}</button>
                 </form>
             </div>
         )

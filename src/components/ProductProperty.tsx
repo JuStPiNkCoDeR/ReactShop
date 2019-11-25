@@ -2,6 +2,7 @@ import React from 'react';
 import Lang from '../lang';
 import ILang from "../lang/ILang";
 import { IIdentifiedProperty, GetPropertyValueEvent } from './ProductPropertiesField';
+import Validation from "../ts/Validation";
 
 export interface IProductPropertyProps {
     language: string,
@@ -35,8 +36,9 @@ export class ProductProperty extends React.Component<IProductPropertyProps, ISta
     }
 
     private handleChange(event: React.FormEvent<HTMLInputElement>, key: StateKeys): void {
+        let value = Validation.convertHTMLtoText(event.currentTarget.value);
         let currentState = Object.create(this.state) as IStates;
-        currentState[key] = event.currentTarget.value;
+        currentState[key] = value;
         this.setState(currentState);
 
         if (key === StateKeys.PropertyName) {

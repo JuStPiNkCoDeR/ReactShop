@@ -2,9 +2,11 @@ import React from 'react';
 import ILang from "../lang/ILang";
 import Lang from "../lang";
 import {onFilesChange} from "./CreateForm";
+import Validation from "../ts/Validation";
 
 export interface IDragAndDropFile {
     language: string,
+    mimeType: string,
     handleFileChange: onFilesChange
 }
 
@@ -38,7 +40,7 @@ export class DragAndDropFile extends React.Component<IDragAndDropFile> {
 
         for (let i = 0; i < fileList.length; i++) {
             let file = fileList.item(i);
-            if (file) files.push(file);
+            if (file && Validation.checkMIMEType('image/*', file)) files.push(file);
         }
 
         if (this._ref && this._ref.current) {

@@ -21,7 +21,7 @@ export class Products extends React.Component<IProductsProps> {
         let products = this.props.products;
         let productsAsJSX = [];
 
-        for (let i = 0; i < products.length; i++) {
+        for (let i = products.length - 1; i >= 0; i--) {
             productsAsJSX.push(<Product key={i} language={this.props.language} product={products[i]}/>);
         }
 

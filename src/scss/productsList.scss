@@ -19,12 +19,17 @@
     @include borderRadius(20px);
     @include boxShadow(5px, 5px, 3px, 3px, #000);
 
+    >* {
+      max-width: 50%;
+    }
+
     .images {
       max-width: 40%;
     }
     .textData {
       margin-right: 5px;
       p, ul {
+        word-break: break-word;
         text-align: left;
         margin: 5px 0;
       }
