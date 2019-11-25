@@ -3,15 +3,17 @@ import ILang from "../lang/ILang";
 import Lang from '../lang';
 import {EOptions, ExtraSortOptions} from './ExtraSortOptions';
 import {ECurrency} from "../types";
+import {HandleSortOptionsChange} from "./ProductsList";
 
 export interface ISortProducts {
-    language: string
+    language: string,
+    handleChange: HandleSortOptionsChange
 }
 
 interface IStates {
     option: EOptions | null,
     price: IPriceConditions | null,
-    currency: ECurrency
+    currency: ECurrency | null
 }
 
 export interface IPriceConditions {
@@ -21,7 +23,7 @@ export interface IPriceConditions {
 
 export type PriceHandler = (conditions: IPriceConditions) => void;
 
-export type CurrencyHandler = (condition: ECurrency) => void;
+export type CurrencyHandler = (condition: ECurrency | null) => void;
 
 export class SortProducts extends React.Component<ISortProducts, IStates> {
     private _langData: ILang;
@@ -50,14 +52,22 @@ export class SortProducts extends React.Component<ISortProducts, IStates> {
         this.setState({
             price: conditions
         });
-        //TODO("Sort by price")
+
+        this.props.handleChange({
+            price: conditions,
+            currency: this.state.currency
+        });
     };
 
-    private handleCurrencyChange: CurrencyHandler = (condition: ECurrency) => {
+    private handleCurrencyChange: CurrencyHandler = (condition: ECurrency | null) => {
         this.setState({
             currency: condition
-        })
-        //TODO("Sort by currency")
+        });
+
+        this.props.handleChange({
+            price: this.state.price,
+            currency: condition
+        });
     };
 
     render() {

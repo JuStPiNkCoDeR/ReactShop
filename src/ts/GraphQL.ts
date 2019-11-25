@@ -6,7 +6,7 @@ export interface IFetchData {
 }
 
 export enum ERequestTypes {
-    CreateProduct = 'createProduct', AllProducts = 'allProducts'
+    CreateProduct = 'createProduct', AllProducts = 'allProducts', Products = 'products'
 }
 
 interface IFetchedProductData {

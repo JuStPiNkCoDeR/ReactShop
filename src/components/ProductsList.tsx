@@ -4,12 +4,24 @@ import ILang from '../lang/ILang';
 import Lang from '../lang';
 import {ERequestTypes, GraphQL, IIdentifiedProduct} from "../ts/GraphQL";
 import Products from './Products';
-import {IProduct} from "../types";
+import {ECurrency, IProduct} from "../types";
 import FileReceiver from "../ts/FileReceiver";
-import {func} from "prop-types";
+import {IPriceConditions} from "./SortProducts";
+
+export type HandleSortOptionsChange = (conditionals: ISortConditionals) => void;
+
+export interface ISortConditionals {
+    price: IPriceConditions | null,
+    currency: ECurrency | null
+}
 
 export interface IProductsListProps {
     language: string
+}
+
+interface IGraphParam {
+    price: Array<number> | null,
+    currency: ECurrency | null
 }
 
 interface IStates {
@@ -76,6 +88,42 @@ export class ProductsList extends React.Component<IProductsListProps, IStates> {
             })
     }
 
+    private handleSortChange: HandleSortOptionsChange = (conditionals => {
+        let query = `query Products($price: [Int], $currency: String) {
+            products(price: $price, currency: $currency) {
+                id, name, price, currency, properties, posted
+            }
+        }`;
+
+        let params: IGraphParam = {
+            price: null,
+            currency: null
+        };
+
+        if (conditionals.price) {
+            let price = conditionals.price;
+            if (price.from || price.to) {
+                params.price = [];
+
+                if (price.from) params.price[0] = price.from;
+                if (price.to) {
+                    if (params.price.length === 0) params.price[0] = 0;
+                    params.price[1] = price.to;
+                }
+            }
+        }
+
+        if (conditionals.currency && conditionals.currency !== ECurrency.Unknown) params.currency = conditionals.currency;
+
+        GraphQL.fetch({
+            query: query,
+            variables: params
+        }, ERequestTypes.Products)
+            .then(result => {
+                this.handleFetchedProducts(result);
+            })
+    });
+
     private handleFetchedProducts(products: Array<IIdentifiedProduct>) {
         let clearProducts: Array<IProduct> = [];
 
@@ -99,7 +147,7 @@ export class ProductsList extends React.Component<IProductsListProps, IStates> {
     render() {
         return(
             <div>
-                <Options language={this.props.language} productsCount={this.state.products.length}/>
+                <Options handleChange={this.handleSortChange} language={this.props.language} productsCount={this.state.products.length}/>
                 <Products language={this.props.language} products={this.state.products}/>
             </div>
         )

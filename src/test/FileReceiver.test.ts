@@ -13,7 +13,7 @@ it('FileReceiver works', async () => {
             id = result[0].id;
         });*/
 
-    let fr = new FileReceiver(id);
+   /* let fr = new FileReceiver(id);
     await fr.download()
-        .then(result => console.log(result));
+        .then(result => console.log(result));*/
 });

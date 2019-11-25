@@ -2,18 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="c0e55c06-74c2-4c81-be73-05055acc0016" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/scss/head.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/socket/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/socket/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Head.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Head.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/graphql/queries/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/graphql/queries/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Options.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Options.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ProductsList.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ProductsList.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lang/ILang.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lang/ILang.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/lang/RU-ru.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/lang/RU-ru.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/scss/App.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/App.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/SortProducts.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SortProducts.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/scss/productsList.scss" beforeDir="false" afterPath="$PROJECT_DIR$/src/scss/productsList.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ts/FileReceiver.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ts/FileReceiver.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ts/Socket.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/ts/Socket.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/FileReceiver.test.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/FileReceiver.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/GraphQL.test.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/GraphQL.test.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ts/GraphQL.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/ts/GraphQL.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -27,15 +24,6 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/lang/RU-ru.ts">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="409">
-              <caret line="49" column="44" selection-start-line="49" selection-start-column="44" selection-end-line="49" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/lang/ILang.ts">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="556">
@@ -45,10 +33,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Head.tsx">
+        <entry file="file://$PROJECT_DIR$/src/components/SortProducts.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="168">
-              <caret line="15" column="46" selection-start-line="15" selection-start-column="46" selection-end-line="15" selection-end-column="46" />
+            <state relative-caret-position="147">
+              <caret line="61" column="81" selection-start-line="61" selection-start-column="81" selection-end-line="61" selection-end-column="81" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -57,10 +45,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/App.tsx">
+        <entry file="file://$PROJECT_DIR$/src/components/ExtraSortOptions.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="441">
-              <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+            <state relative-caret-position="514">
+              <caret line="106" column="111" selection-start-line="106" selection-start-column="111" selection-end-line="106" selection-end-column="111" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -71,8 +59,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/components/ProductsList.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="315">
-              <caret line="95" column="27" selection-start-line="95" selection-start-column="27" selection-end-line="95" selection-end-column="27" />
+            <state relative-caret-position="248">
+              <caret line="115" column="122" selection-start-line="115" selection-start-column="122" selection-end-line="115" selection-end-column="122" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -81,37 +69,40 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ts/FileReceiver.ts">
+        <entry file="file://$PROJECT_DIR$/src/components/Options.tsx">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="273">
-              <caret line="61" column="25" lean-forward="true" selection-start-line="61" selection-start-column="25" selection-end-line="61" selection-end-column="25" />
+            <state relative-caret-position="420">
+              <caret line="24" column="67" selection-start-line="24" selection-start-column="67" selection-end-line="24" selection-end-column="67" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/ts/Socket.js">
+        <entry file="file://$PROJECT_DIR$/src/ts/GraphQL.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
-              <caret line="5" column="51" selection-start-line="5" selection-start-column="51" selection-end-line="5" selection-end-column="51" />
+            <state relative-caret-position="94">
+              <caret line="87" column="44" selection-start-line="87" selection-start-column="44" selection-end-line="87" selection-end-column="44" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/scss/head.scss">
+        <entry file="file://$PROJECT_DIR$/graphql/queries/index.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="294">
-              <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
+            <state relative-caret-position="168">
+              <caret line="32" column="28" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/scss/productsList.scss">
+        <entry file="file://$PROJECT_DIR$/src/test/GraphQL.test.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
+            <state relative-caret-position="522">
+              <caret line="119" column="53" selection-start-line="119" selection-start-column="53" selection-end-line="119" selection-end-column="53" />
             </state>
           </provider>
         </entry>
@@ -153,7 +144,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/components/ProductPropertiesField.tsx" />
         <option value="$PROJECT_DIR$/src/components/ProductProperty.tsx" />
         <option value="$PROJECT_DIR$/routes/index.js" />
         <option value="$PROJECT_DIR$/db/models/index.js" />
@@ -176,33 +166,34 @@
         <option value="$PROJECT_DIR$/src/components/SortProduct.tsx" />
         <option value="$PROJECT_DIR$/src/scss/forms.scss" />
         <option value="$PROJECT_DIR$/src/scss/options.scss" />
-        <option value="$PROJECT_DIR$/src/components/Options.tsx" />
-        <option value="$PROJECT_DIR$/src/components/SortProducts.tsx" />
         <option value="$PROJECT_DIR$/src/ts/FileUploader.ts" />
         <option value="$PROJECT_DIR$/src/test/FileReciever.test.ts" />
-        <option value="$PROJECT_DIR$/graphql/queries/index.js" />
         <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/src/components/Products.tsx" />
         <option value="$PROJECT_DIR$/bin/www" />
-        <option value="$PROJECT_DIR$/src/test/FileReceiver.test.ts" />
-        <option value="$PROJECT_DIR$/src/ts/GraphQL.ts" />
         <option value="$PROJECT_DIR$/src/ts/HTMLTricks.ts" />
         <option value="$PROJECT_DIR$/src/components/Product.tsx" />
         <option value="$PROJECT_DIR$/graphql/types/index.js" />
         <option value="$PROJECT_DIR$/src/types/index.ts" />
         <option value="$PROJECT_DIR$/db/schemas/index.js" />
         <option value="$PROJECT_DIR$/src/components/CreateForm.tsx" />
-        <option value="$PROJECT_DIR$/src/components/ExtraSortOptions.tsx" />
         <option value="$PROJECT_DIR$/src/lang/ILang.ts" />
         <option value="$PROJECT_DIR$/src/lang/RU-ru.ts" />
         <option value="$PROJECT_DIR$/src/scss/App.scss" />
-        <option value="$PROJECT_DIR$/src/scss/productsList.scss" />
         <option value="$PROJECT_DIR$/src/components/Head.tsx" />
         <option value="$PROJECT_DIR$/src/scss/head.scss" />
         <option value="$PROJECT_DIR$/socket/index.js" />
         <option value="$PROJECT_DIR$/src/App.tsx" />
         <option value="$PROJECT_DIR$/src/ts/Socket.js" />
         <option value="$PROJECT_DIR$/src/ts/FileReceiver.ts" />
+        <option value="$PROJECT_DIR$/src/scss/productsList.scss" />
+        <option value="$PROJECT_DIR$/src/test/FileReceiver.test.ts" />
+        <option value="$PROJECT_DIR$/src/ts/GraphQL.ts" />
+        <option value="$PROJECT_DIR$/graphql/queries/index.js" />
+        <option value="$PROJECT_DIR$/src/test/GraphQL.test.ts" />
+        <option value="$PROJECT_DIR$/src/components/Options.tsx" />
+        <option value="$PROJECT_DIR$/src/components/SortProducts.tsx" />
+        <option value="$PROJECT_DIR$/src/components/ExtraSortOptions.tsx" />
         <option value="$PROJECT_DIR$/src/components/ProductsList.tsx" />
       </list>
     </option>
@@ -229,7 +220,13 @@
             <path>
               <item name="react_shop" type="b2602c69:ProjectViewProjectNode" />
               <item name="react_shop" type="462c0819:PsiDirectoryNode" />
-              <item name="db" type="462c0819:PsiDirectoryNode" />
+              <item name="graphql" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="react_shop" type="b2602c69:ProjectViewProjectNode" />
+              <item name="react_shop" type="462c0819:PsiDirectoryNode" />
+              <item name="graphql" type="462c0819:PsiDirectoryNode" />
+              <item name="queries" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="react_shop" type="b2602c69:ProjectViewProjectNode" />
@@ -252,12 +249,6 @@
               <item name="react_shop" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="lang" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="react_shop" type="b2602c69:ProjectViewProjectNode" />
-              <item name="react_shop" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="scss" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="react_shop" type="b2602c69:ProjectViewProjectNode" />
@@ -324,7 +315,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Jest.FileReceiver works">
+  <component name="RunManager" selected="Jest.GraphQL">
     <configuration name="FileReceiver works" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
@@ -338,16 +329,29 @@
       </test-names>
       <method v="2" />
     </configuration>
-    <configuration name="GraphQL mutate correctly" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+    <configuration name="GraphQL query specified products correctly" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
       <node-interpreter value="project" />
       <node-options value="" />
       <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
       <working-dir value="$PROJECT_DIR$" />
       <envs />
       <scope-kind value="TEST" />
-      <test-file value="$PROJECT_DIR$/src/test/GraphQL.test.tsx" />
+      <test-file value="$PROJECT_DIR$/src/test/GraphQL.test.ts" />
       <test-names>
-        <test-name value="GraphQL mutate correctly" />
+        <test-name value="GraphQL query specified products correctly" />
+      </test-names>
+      <method v="2" />
+    </configuration>
+    <configuration name="GraphQL" type="JavaScriptTestRunnerJest" temporary="true" nameIsGenerated="true">
+      <node-interpreter value="project" />
+      <node-options value="" />
+      <jest-package value="$PROJECT_DIR$/node_modules/react-scripts" />
+      <working-dir value="$PROJECT_DIR$" />
+      <envs />
+      <scope-kind value="SUITE" />
+      <test-file value="$PROJECT_DIR$/src/test/GraphQL.test.ts" />
+      <test-names>
+        <test-name value="GraphQL" />
       </test-names>
       <method v="2" />
     </configuration>
@@ -365,16 +369,6 @@
       <method v="2" />
     </configuration>
     <configuration name="Debug Application" type="JavascriptDebugType" uri="http://localhost:3000">
-      <method v="2" />
-    </configuration>
-    <configuration name="build" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="build" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
       <method v="2" />
     </configuration>
     <configuration name="npm start" type="js.build_tools.npm">
@@ -400,10 +394,10 @@
     <recent_temporary>
       <list>
         <item itemvalue="npm.server start" />
+        <item itemvalue="Jest.GraphQL" />
+        <item itemvalue="Jest.GraphQL query specified products correctly" />
         <item itemvalue="Jest.FileReceiver works" />
         <item itemvalue="Jest.Simple generator write correct" />
-        <item itemvalue="Jest.GraphQL mutate correctly" />
-        <item itemvalue="npm.build" />
       </list>
     </recent_temporary>
   </component>
@@ -421,7 +415,7 @@
       <workItem from="1574290828687" duration="47023000" />
       <workItem from="1574389927314" duration="59956000" />
       <workItem from="1574578724311" duration="3143000" />
-      <workItem from="1574609918374" duration="12339000" />
+      <workItem from="1574609918374" duration="18794000" />
     </task>
     <task id="LOCAL-00001" summary="Version: 0.0.1&#10;*Add your products to rhe shop!*(#0)&#10;&#10;Front-end -&gt; add ability to create new product.&#10;Back-end -&gt; GraphQL mutation(CREATE) + db storage + transport files via sockets">
       <created>1574515356440</created>
@@ -444,49 +438,56 @@
       <option name="project" value="LOCAL" />
       <updated>1574616341778</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Version 0.0.2(a)&#10;*Optimization looks good everywhere :D*(#3)&#10;&#10;Front-end -&gt; Improve FileReceiver and downloading files algorithms by callbacks(because promises have been shown already).&#10;&#10;Next goals: &#10;  1) Simple validation for addProduct scripts.&#10;  2) Add sort scripts for products via GraphQL.&#10;  3) May be will implement downloading files via promises too.">
+      <created>1574627605554</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1574627605554</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="FileReceiver_works - 2019.11.24 at 18h 22m 30s.xml">
-      <configuration name="FileReceiver works" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="GraphQL - 2019.11.25 at 09h 49m 40s.xml">
+      <configuration name="GraphQL" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="FileReceiver_works - 2019.11.24 at 18h 23m 23s.xml">
-      <configuration name="FileReceiver works" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="GraphQL - 2019.11.25 at 09h 55m 07s.xml">
+      <configuration name="GraphQL" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="FileReceiver_works - 2019.11.24 at 18h 24m 38s.xml">
-      <configuration name="FileReceiver works" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="GraphQL - 2019.11.25 at 09h 56m 28s.xml">
+      <configuration name="GraphQL" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="FileReceiver_works - 2019.11.24 at 18h 25m 19s.xml">
-      <configuration name="FileReceiver works" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="GraphQL - 2019.11.25 at 09h 57m 58s.xml">
+      <configuration name="GraphQL" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="FileReceiver_works - 2019.11.24 at 18h 26m 06s.xml">
-      <configuration name="FileReceiver works" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="GraphQL - 2019.11.25 at 19h 19m 56s.xml">
+      <configuration name="GraphQL" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="FileReceiver_works - 2019.11.24 at 18h 28m 28s.xml">
-      <configuration name="FileReceiver works" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="GraphQL - 2019.11.25 at 19h 21m 26s.xml">
+      <configuration name="GraphQL" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="FileReceiver_works - 2019.11.24 at 18h 28m 50s.xml">
-      <configuration name="FileReceiver works" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="GraphQL - 2019.11.25 at 19h 34m 45s.xml">
+      <configuration name="GraphQL" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="FileReceiver_works - 2019.11.24 at 18h 30m 04s.xml">
-      <configuration name="FileReceiver works" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="GraphQL - 2019.11.25 at 19h 35m 28s.xml">
+      <configuration name="GraphQL" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="FileReceiver_works - 2019.11.24 at 18h 31m 07s.xml">
-      <configuration name="FileReceiver works" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="GraphQL - 2019.11.25 at 19h 35m 56s.xml">
+      <configuration name="GraphQL" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
-    <history-entry file="FileReceiver_works - 2019.11.24 at 18h 31m 28s.xml">
-      <configuration name="FileReceiver works" configurationId="JavaScriptTestRunnerJest" />
+    <history-entry file="GraphQL - 2019.11.25 at 19h 36m 12s.xml">
+      <configuration name="GraphQL" configurationId="JavaScriptTestRunnerJest" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="126815000" />
+    <option name="totallyTimeSpent" value="133270000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="67" y="25" width="1299" height="743" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49185666" visible="true" weight="0.25" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49185666" visible="true" weight="0.25" />
       <window_info id="Structure" order="1" sideWeight="0.504886" side_tool="true" weight="0.25" />
       <window_info id="npm" order="2" sideWeight="0.5081433" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -537,7 +538,8 @@
     <MESSAGE value="Version: 0.0.1&#10;*Add your products to rhe shop!*(#0)&#10;&#10;Front-end -&gt; add ability to create new product.&#10;Back-end -&gt; GraphQL mutation(CREATE) + db storage + transport files via sockets" />
     <MESSAGE value="Update README" />
     <MESSAGE value="Version 0.0.2&#10;*I see the whole products WOW!*(#1)&#10;&#10;Back-end -&gt; Update socket. Now you able to download files from db. Insert 2 more currency. GraphQL can return a Date type.&#10;Front-end -&gt; Products list done.&#10;&#10;Next goals:&#10;  1) Add Head for shop(divide productList and addProduct to the shop)&#10;  2) Simple validation for addProduct scripts.&#10;  3) Add sort scripts for products via GraphQL." />
-    <option name="LAST_COMMIT_MESSAGE" value="Version 0.0.2&#10;*I see the whole products WOW!*(#1)&#10;&#10;Back-end -&gt; Update socket. Now you able to download files from db. Insert 2 more currency. GraphQL can return a Date type.&#10;Front-end -&gt; Products list done.&#10;&#10;Next goals:&#10;  1) Add Head for shop(divide productList and addProduct to the shop)&#10;  2) Simple validation for addProduct scripts.&#10;  3) Add sort scripts for products via GraphQL." />
+    <MESSAGE value="Version 0.0.2(a)&#10;*Optimization looks good everywhere :D*(#3)&#10;&#10;Front-end -&gt; Improve FileReceiver and downloading files algorithms by callbacks(because promises have been shown already).&#10;&#10;Next goals: &#10;  1) Simple validation for addProduct scripts.&#10;  2) Add sort scripts for products via GraphQL.&#10;  3) May be will implement downloading files via promises too." />
+    <option name="LAST_COMMIT_MESSAGE" value="Version 0.0.2(a)&#10;*Optimization looks good everywhere :D*(#3)&#10;&#10;Front-end -&gt; Improve FileReceiver and downloading files algorithms by callbacks(because promises have been shown already).&#10;&#10;Next goals: &#10;  1) Simple validation for addProduct scripts.&#10;  2) Add sort scripts for products via GraphQL.&#10;  3) May be will implement downloading files via promises too." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/graphql/index.js">
@@ -556,16 +558,6 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/ts/Socket.ts" />
     <entry file="file://$PROJECT_DIR$/src/test/Generators.ts" />
-    <entry file="file://$PROJECT_DIR$/src/test/GraphQL.test.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="819">
-          <caret line="39" column="42" selection-start-line="39" selection-start-column="42" selection-end-line="39" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#53#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/test/App.test.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="21">
@@ -654,16 +646,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Options.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="8" column="1" selection-start-line="8" selection-start-column="1" selection-end-line="8" selection-end-column="1" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ProductPropertiesField.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="147">
@@ -712,16 +694,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/test/FileReceiver.test.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="252">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#53#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/scss/containers.scss">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="200">
@@ -736,13 +708,6 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/ts/GraphQL.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="41" column="54" selection-start-line="41" selection-start-column="54" selection-end-line="41" selection-end-column="54" />
         </state>
       </provider>
     </entry>
@@ -770,47 +735,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/graphql/queries/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="477">
-          <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/SortProducts.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="59" column="33" selection-start-line="59" selection-start-column="33" selection-end-line="59" selection-end-column="33" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/schemas/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="126">
           <caret line="6" column="72" selection-start-line="6" selection-start-column="72" selection-end-line="6" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/CreateForm.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="371">
-          <caret line="145" column="127" selection-start-line="145" selection-start-column="28" selection-end-line="145" selection-end-column="127" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ExtraSortOptions.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="106" column="123" selection-start-line="106" selection-start-column="123" selection-end-line="106" selection-end-column="123" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -849,13 +777,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scss/productsList.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="7" column="18" selection-start-line="7" selection-start-column="18" selection-end-line="7" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Head.tsx">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -866,13 +787,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/scss/head.scss">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="294">
-          <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/db/index.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
@@ -880,27 +794,17 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/socket/index.js">
+    <entry file="file://$PROJECT_DIR$/src/scss/productsList.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="388">
-          <caret line="72" column="44" selection-start-line="72" selection-start-column="44" selection-end-line="72" selection-end-column="44" />
+        <state relative-caret-position="168">
+          <caret line="8" column="18" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/lang/ILang.ts">
+    <entry file="file://$PROJECT_DIR$/src/scss/head.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="556">
-          <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/App.tsx">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="441">
-          <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="294">
+          <caret line="14" column="19" lean-forward="true" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="19" />
         </state>
       </provider>
     </entry>
@@ -918,10 +822,105 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/App.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="441">
+          <caret line="28" column="22" selection-start-line="28" selection-start-column="22" selection-end-line="28" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/CreateForm.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2222">
+          <caret line="145" column="127" selection-start-line="145" selection-start-column="28" selection-end-line="145" selection-end-column="127" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/socket/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1512">
+          <caret line="72" column="44" selection-start-line="72" selection-start-column="44" selection-end-line="72" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/lang/ILang.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="556">
+          <caret line="47" column="29" selection-start-line="47" selection-start-column="29" selection-end-line="47" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/FileReceiver.test.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="215">
+          <caret line="17" column="47" selection-start-line="17" selection-start-column="47" selection-end-line="17" selection-end-column="47" />
+          <folding>
+            <element signature="e#0#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/graphql/queries/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="32" column="28" selection-start-line="32" selection-start-column="28" selection-end-line="32" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/GraphQL.test.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="522">
+          <caret line="119" column="53" selection-start-line="119" selection-start-column="53" selection-end-line="119" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/ts/GraphQL.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="87" column="44" selection-start-line="87" selection-start-column="44" selection-end-line="87" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Options.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="24" column="67" selection-start-line="24" selection-start-column="67" selection-end-line="24" selection-end-column="67" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/SortProducts.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="147">
+          <caret line="61" column="81" selection-start-line="61" selection-start-column="81" selection-end-line="61" selection-end-column="81" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ExtraSortOptions.tsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="514">
+          <caret line="106" column="111" selection-start-line="106" selection-start-column="111" selection-end-line="106" selection-end-column="111" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ProductsList.tsx">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="315">
-          <caret line="95" column="27" selection-start-line="95" selection-start-column="27" selection-end-line="95" selection-end-column="27" />
+        <state relative-caret-position="248">
+          <caret line="115" column="122" selection-start-line="115" selection-start-column="122" selection-end-line="115" selection-end-column="122" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
