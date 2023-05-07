@@ -26,7 +26,7 @@
     "mongoose": "^5.7.12",
     "nconf": "^0.10.0",
     "cors": "^2.8.5",
-    "socket.io": "^2.3.0",
+    "socket.io": "^2.5.0",
     "socket.io-client": "^2.3.0"
   },
   "scripts": {
